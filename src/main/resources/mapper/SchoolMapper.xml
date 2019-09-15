@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.SchoolMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.pojo.School">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+  </resultMap>
+
+  <select id="getSchoolCount" resultType="schoolCount">
+    select b.name as schoolName,count(*) as count from student a,school b where a.school_id=b.id group by b.name;
+  </select>
+</mapper>

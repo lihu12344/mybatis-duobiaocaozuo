@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.StudentMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.pojo.Student">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="school_id" jdbcType="INTEGER" property="schoolId" />
+  </resultMap>
+
+  <select id="getAllStudentInfo" resultType="studentInfo">
+    select a.id,a.name,a.age,b.name as schoolName from student a,school b where a.school_id=b.id;
+  </select>
+</mapper>
